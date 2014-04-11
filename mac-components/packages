@@ -28,5 +28,12 @@ fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integ
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
   brew install watch
 
-fancy_echo "Installing Node.js and NPM, for running apps and installing JavaScript packages ..."
-  brew install node
+if ! command -v brew &>/dev/null; then
+  fancy_echo "Installing NVM, Node.js, and NPM, for running apps and installing JavaScript packages ..."
+    brew install nvm
+    printf 'source $(brew --prefix nvm)/nvm.sh\n' >> ~/.zshrc
+    source ~/.zshrc
+    nvm install 0.10
+else
+  fancy_echo "NVM already installed. Skipping ..."
+fi
