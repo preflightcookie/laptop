@@ -65,7 +65,7 @@ What it sets up
 * Ruby stable for writing general-purpose code
 * The Silver Searcher for finding things in files
 * Tmux for saving project state and switching between projects
-* Watch for periodically executing a program and displaying the output
+* Common apps (Google Chrome, Firefox, Spotify, HipChat etc)
 
 It should take less than 15 minutes to install (depends on your machine).
 
