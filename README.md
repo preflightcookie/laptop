@@ -37,7 +37,7 @@ Install
 
 Read, then run the script:
 
-    bash <(curl -s https://raw.github.com/redsquirreldev/laptop/master/mac)
+    curl -fsSL https://raw.github.com/redsquirreldev/laptop/master/mac | bash
 
 ### Linux
 
@@ -65,9 +65,19 @@ What it sets up
 * Ruby stable for writing general-purpose code
 * The Silver Searcher for finding things in files
 * Tmux for saving project state and switching between projects
-* Common apps (Google Chrome, Firefox, Spotify, HipChat etc)
 
 It should take less than 15 minutes to install (depends on your machine).
+
+Setup common apps
+-----------------
+
+To install common apps create ~/.laptop.local - or download the template.
+
+    curl -OfsSL https://raw.github,com/redsquirreldev/laptop/master/mac-components/local-template && mv local-template ~/.laptop.local
+	
+If you do this before running laptop the apps will be installed as part of the bash script.  If you do it after having already run the laptop script, source the file:
+
+    source ~/.laptop.local
 
 Make your own customizations
 ----------------------------
