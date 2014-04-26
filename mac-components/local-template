@@ -1,0 +1,26 @@
+#!/bin/sh
+
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+brew cask install java
+brew cask install google-chrome
+brew cask install firefox
+brew cask install spotify
+brew cask install hipchat
+brew cask install tower
+brew cask install dropbox
+brew cask install authy-bluetooth
+brew cask install little-snith
+brew cask install tunnelblick
+brew cask install navicat-for-postgresql
+brew cask install pgadmin3
+brew cask install rubymine
+brew cask install silverlight
+brew cask install textmate
+brew cask install transmission
+brew cask install vlc
+brew cask install vmware-fusion
+brew cask install wireshark
+brew cask install flux
+brew cask install lastpass-universal
