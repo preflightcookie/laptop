@@ -1,7 +1,6 @@
 if ! command -v babushka &>/dev/null; then
   fancy_echo "Installing Babushka, a humble tool for automating computing chores..."
     sh -c "`curl https://babushka.me/up`" </dev/null
-  fi
 else
   fancy_echo "Babushka already installed. Skipping ..."
 fi
