@@ -1,2 +1,4 @@
 fancy_echo "Starting Postgres ..."
+  mkdir -p ~/Library/LaunchAgents
+  cp /usr/local/Cellar/postgresql/*/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
   brew services start postgres
