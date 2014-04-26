@@ -19,9 +19,9 @@ brew cask install vlc --appdir=/Applications
 brew cask install vmware-fusion --appdir=/Applications
 brew cask install wireshark --appdir=/Applications
 
-brew cask install flux
-brew cask install lastpass-universal
-brew cask install silverlight
-brew cask install authy-bluetooth
-brew cask install little-snith
-brew cask install tunnelblick
+brew cask install flux --appdir=/Applications
+brew cask install lastpass-universal --appdir=/Applications
+brew cask install silverlight --appdir=/Applications
+brew cask install authy-bluetooth --appdir=/Applications
+brew cask install little-snitch --appdir=/Applications
+brew cask install tunnelblick --appdir=/Applications
