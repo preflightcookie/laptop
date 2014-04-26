@@ -1,2 +1,8 @@
 fancy_echo "Installing Google Chrome..."
   brew cask install google-chrome
+  brew cask install firefox
+  brew cask install spotify
+  brew cask install hipchat
+  brew cask install tower
+  brew cask install lastpass
+  
