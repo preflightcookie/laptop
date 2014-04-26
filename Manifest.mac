@@ -16,4 +16,5 @@ common-components/ruby-environment
 mac-components/bundler
 mac-components/heroku
 mac-components/github
+mac-components/cask
 common-components/personal-additions

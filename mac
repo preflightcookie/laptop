@@ -154,6 +154,14 @@ fancy_echo "Installing GitHub CLI client ..."
   brew install hub
 ### end mac-components/github
 
+fancy_echo "Installing Homebrew cask..."
+  brew tap phinze/homebrew-cask
+  brew install brew-cask
+
+fancy_echo "Creating symlink for casks until brew's breaking change is fixed"
+  ln -s /usr/local/Library/Taps/phinze/homebrew-cask /usr/local/Library/Taps/phinze-cask
+### end mac-components/cask
+
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   if [[ -f ~/.laptop.local ]]; then
     source ~/.laptop.local

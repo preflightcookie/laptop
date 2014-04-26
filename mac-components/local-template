@@ -1,8 +1,5 @@
 #!/bin/sh
 
-brew tap phinze/homebrew-cask
-brew install brew-cask
-
 brew cask install java --appdir=/Applications
 brew cask install google-chrome --appdir=/Applications
 brew cask install firefox --appdir=/Applications
