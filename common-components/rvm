@@ -1,8 +1,7 @@
 if ! command -v rvm &>/dev/null; then
   fancy_echo "Installing RVM, a command-line tool which allows you to easily install, manage, and work with multiple ruby environments..."
     curl -sSL https://get.rvm.io | bash
-  fi
-  
+    
   fancy_echo "Re-loading profile to access rvm functions ..."
   source ~/.rvm/scripts/rvm
 else
