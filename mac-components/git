@@ -1,0 +1,3 @@
+fancy_echo "Upgrading and linking git ..."
+  brew install git
+  brew link git --force

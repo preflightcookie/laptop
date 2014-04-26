@@ -11,8 +11,11 @@ mac-components/packages
 mac-components/start-services
 common-components/rvm
 mac-components/openssl
+mac-components/git
 common-components/ruby-environment
 mac-components/bundler
 mac-components/heroku
 mac-components/github
+mac-components/cask
+mac-components/common-apps
 common-components/personal-additions

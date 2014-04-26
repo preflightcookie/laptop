@@ -1,0 +1,3 @@
+fancy_echo "Installing Homebrew cask..."
+  brew tap phinze/homebrew-cask
+  brew install brew-cask

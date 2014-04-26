@@ -118,6 +118,11 @@ fancy_echo "Upgrading and linking OpenSSL ..."
   brew install curl-ca-bundle
 ### end mac-components/openssl
 
+fancy_echo "Upgrading and linking git ..."
+  brew install git
+  brew link git --force
+### end mac-components/git
+
 ruby_version="$(curl -sSL https://raw.githubusercontent.com/redsquirreldev/laptop/master/versions/ruby)"
 
 fancy_echo "Installing Ruby $ruby_version ..."
@@ -149,9 +154,10 @@ fancy_echo "Installing GitHub CLI client ..."
   brew install hub
 ### end mac-components/github
 
-fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-  if [[ -f ~/.laptop.local ]]; then
-    source ~/.laptop.local
-  fi
-### end common-components/personal-additions
+fancy_echo "Installing Homebrew cask..."
+  brew tap phinze/homebrew-cask
+  brew install brew-cask### end mac-components/cask
+
+fancy_echo "Installing Google Chrome..."
+  brew cask install google-chrome### end mac-components/common-apps
 
