@@ -10,9 +10,6 @@ fancy_echo "Installing The Silver Searcher (better than ack or grep) to search t
 fancy_echo "Installing vim from Homebrew to get the latest version ..."
   brew install vim
 
-fancy_echo "Installing ctags, to index files for vim tab completion of methods, classes, variables ..."
-  brew install ctags
-
 fancy_echo "Installing tmux, to save project state and switch between projects ..."
   brew install tmux
 
@@ -21,9 +18,6 @@ fancy_echo "Installing reattach-to-user-namespace, for copy-paste and RubyMotion
 
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   brew install imagemagick
-
-fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  brew install qt
 
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
   brew install watch

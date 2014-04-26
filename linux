@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 ### end common-components/bash-shebang
 
-# Welcome to the thoughtbot laptop script! Be prepared to turn your laptop (or
+# Welcome to the Red Squirrel laptop script! Be prepared to turn your laptop (or
 # desktop, no haters here) into an awesome development machine.
+
+# Whilst customised for Red Squirrel work, this script is 99% based on thoughtbot's 
+# laptop script.
 
 # This file is auto-generated. Do not edit it by hand unless you know what
 # you're doing. Please see 'CONTRIBUTING.md' for more information.
@@ -133,18 +136,13 @@ if [[ ! -d "$HOME/.rbenv/plugins/ruby-build" ]]; then
 fi
 ### end linux-components/rbenv
 
-ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+ruby_version="$(curl -sSL https://raw.githubusercontent.com/redsquirreldev/laptop/master/versions/ruby)"
 
 fancy_echo "Installing Ruby $ruby_version ..."
-  if [ "$ruby_version" = "2.1.1" ]; then
-    curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1
-  else
-    rbenv install "$ruby_version"
-  fi
+  rvm install $ruby_version
 
 fancy_echo "Setting $ruby_version as global default Ruby ..."
-  rbenv global "$ruby_version"
-  rbenv rehash
+  rvm --default use $ruby_version
 
 fancy_echo "Updating to latest Rubygems version ..."
   gem update --system
@@ -158,8 +156,6 @@ fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
   bundle config --global jobs $((number_of_cores - 1))
 ### end linux-components/bundler
 
-fancy_echo "Installing Suspenders, thoughtbot's Rails template ..."
-  gem install suspenders --no-document
 ### end common-components/default-gems
 
 fancy_echo "Installing Heroku CLI client ..."

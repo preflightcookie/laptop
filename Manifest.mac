@@ -6,14 +6,13 @@ common-components/shared-functions
 common-components/zsh
 mac-components/zsh-fix
 mac-components/homebrew
+common-components/babushka
 mac-components/packages
 mac-components/start-services
-mac-components/rbenv
-mac-components/compiler-and-libraries
+common-components/rvm
+mac-components/openssl
 common-components/ruby-environment
 mac-components/bundler
-common-components/default-gems
 mac-components/heroku
 mac-components/github
-mac-components/rcm
 common-components/personal-additions

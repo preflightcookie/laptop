@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 ### end common-components/bash-shebang
 
-# Welcome to the thoughtbot laptop script! Be prepared to turn your laptop (or
+# Welcome to the Red Squirrel laptop script! Be prepared to turn your laptop (or
 # desktop, no haters here) into an awesome development machine.
+
+# Whilst customised for Red Squirrel work, this script is 99% based on thoughtbot's 
+# laptop script.
 
 # This file is auto-generated. Do not edit it by hand unless you know what
 # you're doing. Please see 'CONTRIBUTING.md' for more information.
@@ -44,7 +47,7 @@ fi
 
 if ! command -v brew &>/dev/null; then
   fancy_echo "Installing Homebrew, a good OS X package manager ..."
-    ruby <(curl -fsS https://raw.github.com/Homebrew/homebrew/go/install)
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
     fancy_echo "Put Homebrew location earlier in PATH ..."
@@ -60,6 +63,15 @@ fancy_echo "Updating Homebrew formulas ..."
 brew update
 ### end mac-components/homebrew
 
+if ! command -v babushka &>/dev/null; then
+  fancy_echo "Installing Babushka, a humble tool for automating computing chores..."
+    sh -c "`curl https://babushka.me/up`" </dev/null
+  fi
+else
+  fancy_echo "Babushka already installed. Skipping ..."
+fi
+### end common-components/babushka
+
 fancy_echo "Installing Postgres, a good open source relational database ..."
   brew install postgres --no-python
 
@@ -72,9 +84,6 @@ fancy_echo "Installing The Silver Searcher (better than ack or grep) to search t
 fancy_echo "Installing vim from Homebrew to get the latest version ..."
   brew install vim
 
-fancy_echo "Installing ctags, to index files for vim tab completion of methods, classes, variables ..."
-  brew install ctags
-
 fancy_echo "Installing tmux, to save project state and switch between projects ..."
   brew install tmux
 
@@ -84,55 +93,39 @@ fancy_echo "Installing reattach-to-user-namespace, for copy-paste and RubyMotion
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   brew install imagemagick
 
-fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  brew install qt
-
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
-  brew install watch
-### end mac-components/packages
+  brew install watch### end mac-components/packages
 
 fancy_echo "Starting Postgres ..."
   brew services start postgres
 ### end mac-components/start-services
 
-fancy_echo "Installing rbenv, to change Ruby versions ..."
-  brew install rbenv
-
-  if ! grep -qs "rbenv init" ~/.zshrc; then
-    printf 'export PATH="$HOME/.rbenv/bin:$PATH"\n' >> ~/.zshrc
-    printf 'eval "$(rbenv init - --no-rehash)"\n' >> ~/.zshrc
-
-    fancy_echo "Enable shims and autocompletion ..."
-      eval "$(rbenv init -)"
+if ! command -v rvm &>/dev/null; then
+  fancy_echo "Installing RVM, a command-line tool which allows you to easily install, manage, and work with multiple ruby environments..."
+    curl -sSL https://get.rvm.io | bash
   fi
+  
+  fancy_echo "Re-loading profile to access rvm functions ..."
+  source ~/.rvm/scripts/rvm
+else
+  fancy_echo "RVM already installed. Skipping ..."
+fi
 
-  export PATH="$HOME/.rbenv/bin:$PATH"
-
-fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up binaries after installing gems with binaries..."
-  brew install rbenv-gem-rehash
-
-fancy_echo "Installing ruby-build, to install Rubies ..."
-  brew install ruby-build
-### end mac-components/rbenv
+### end common-components/rvm
 
 fancy_echo "Upgrading and linking OpenSSL ..."
   brew install openssl
   brew link openssl --force
   brew install curl-ca-bundle
-### end mac-components/compiler-and-libraries
+### end mac-components/openssl
 
-ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
+ruby_version="$(curl -sSL https://raw.githubusercontent.com/redsquirreldev/laptop/master/versions/ruby)"
 
 fancy_echo "Installing Ruby $ruby_version ..."
-  if [ "$ruby_version" = "2.1.1" ]; then
-    curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1
-  else
-    rbenv install "$ruby_version"
-  fi
+  rvm install $ruby_version
 
 fancy_echo "Setting $ruby_version as global default Ruby ..."
-  rbenv global "$ruby_version"
-  rbenv rehash
+  rvm --default use $ruby_version
 
 fancy_echo "Updating to latest Rubygems version ..."
   gem update --system
@@ -146,10 +139,6 @@ fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
   bundle config --global jobs $((number_of_cores - 1))
 ### end mac-components/bundler
 
-fancy_echo "Installing Suspenders, thoughtbot's Rails template ..."
-  gem install suspenders --no-document
-### end common-components/default-gems
-
 fancy_echo "Installing Heroku CLI client ..."
   brew install heroku-toolbelt
 
@@ -160,15 +149,6 @@ fancy_echo "Installing the heroku-config plugin to pull config variables locally
 fancy_echo "Installing GitHub CLI client ..."
   brew install hub
 ### end mac-components/github
-
-if ! command -v rcup &>/dev/null; then
-  fancy_echo "Installing rcm, to manage your dotfiles ..."
-    brew tap thoughtbot/formulae
-    brew install rcm
-else
-  fancy_echo "rcm already installed. Skipping ..."
-fi
-### end mac-components/rcm
 
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   if [[ -f ~/.laptop.local ]]; then
