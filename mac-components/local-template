@@ -3,24 +3,25 @@
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
-brew cask install java
-brew cask install google-chrome
-brew cask install firefox
-brew cask install spotify
-brew cask install hipchat
-brew cask install tower
-brew cask install dropbox
+brew cask install java --appdir=/Applications
+brew cask install google-chrome --appdir=/Applications
+brew cask install firefox --appdir=/Applications
+brew cask install spotify --appdir=/Applications
+brew cask install hipchat --appdir=/Applications
+brew cask install tower --appdir=/Applications
+brew cask install dropbox --appdir=/Applications
+brew cask install navicat-for-postgresql --appdir=/Applications
+brew cask install pgadmin3 --appdir=/Applications
+brew cask install rubymine --appdir=/Applications
+brew cask install textmate --appdir=/Applications
+brew cask install transmission --appdir=/Applications
+brew cask install vlc --appdir=/Applications
+brew cask install vmware-fusion --appdir=/Applications
+brew cask install wireshark --appdir=/Applications
+
+brew cask install flux
+brew cask install lastpass-universal
+brew cask install silverlight
 brew cask install authy-bluetooth
 brew cask install little-snith
 brew cask install tunnelblick
-brew cask install navicat-for-postgresql
-brew cask install pgadmin3
-brew cask install rubymine
-brew cask install silverlight
-brew cask install textmate
-brew cask install transmission
-brew cask install vlc
-brew cask install vmware-fusion
-brew cask install wireshark
-brew cask install flux
-brew cask install lastpass-universal
