@@ -72,7 +72,7 @@ Setup common apps
 
 To install common apps create ~/.laptop.local - or download the template.
 
-    curl -OfsSL https://raw.github,com/redsquirreldev/laptop/master/mac-components/local-template && mv local-template ~/.laptop.local
+    curl -OfsSL https://raw.github.com/redsquirreldev/laptop/master/mac-components/local-template && mv local-template ~/.laptop.local
 	
 If you do this before running laptop the apps will be installed as part of the bash script.  If you do it after having already run the laptop script, source the file:
 
